@@ -1,0 +1,14 @@
+class Solution {
+public:
+string mergeAlternately(string w1, string w2) {
+    string ans ="";
+    for(int i = 0; i < min(w1.size(),w2.size()); i++){
+        ans+=w1[i];
+        ans+=+w2[i];
+    }
+    if(w1.size()>w2.size()) ans+=w1.substr(w2.size());
+    if(w1.size()<w2.size()) ans+=w2.substr(w1.size());
+
+    return ans;
+    }
+};

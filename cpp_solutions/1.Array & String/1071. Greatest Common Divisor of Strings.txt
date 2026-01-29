@@ -1,0 +1,36 @@
+# brute force
+
+class Solution {
+public:
+    string gcdOfStrings(string s1, string s2) {
+        string t="", cur="";
+        int ms = min(s1.size(), s2.size());
+        for(int i=0; i<ms; i++){
+            cur += s1[i];
+            if(isdivisor(cur, s1) && isdivisor(cur, s2)) 
+                t = cur;      
+        }
+        return t;
+    }
+    bool isdivisor(string div , string s){
+        string divisor = div;
+        while(divisor.size() < s.size())
+            divisor += div;
+        return divisor == s;
+    }
+};
+
+-----
+# gcd
+
+#include <bits/stdc++.h>
+using namespace std;
+
+class Solution {
+public:
+    string gcdOfStrings(string s1, string s2) {
+        if(s1+s2 != s2+s1)
+            return "";
+        return s1.substr(0, gcd(s1.size(), s2.size()));
+    }
+};
